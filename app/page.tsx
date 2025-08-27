@@ -1,103 +1,296 @@
-import Image from "next/image";
+
+'use client';
+
+import { useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import WhyChooseUs from '../components/WhyChooseUs';
+import ServicesPreview from '../components/ServicesPreview';
+import InstagramReels from '../components/InstagramReels';
+import Gallery from '../components/Gallery';
+import Testimonials from '../components/Testimonials';
+import Process from '../components/Process';
+import CTABanner from '../components/CTABanner';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.fade-up');
+    animatedElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="min-h-screen">
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+          --gold-stops: #F4D03F 0%, #F7DC6F 15%, #F1C40F 30%, #D4AC0D 50%, #B7950B 70%, #D4AC0D 85%, #F1C40F 100%;
+          --gold: #F1C40F;
+          --gold-medium: #D4AC0D;
+          --gold-dark: #B7950B;
+          --lavender: #C8A2C8;
+          --black: #000000;
+        }
+
+        body {
+          font-family: 'Poppins', sans-serif;
+          color: var(--black);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Playfair Display', serif;
+          color: #000000;
+          text-shadow: none;
+          filter: none;
+        }
+
+        /* Removed all old gold-span, gold-text implementations */
+
+        .btn-gold,
+        .btn-primary,
+        .cta,
+        .wa-btn {
+          background: linear-gradient(135deg, var(--gold-stops));
+          position: relative;
+          color: white;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(212, 172, 13, 0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+          overflow: hidden;
+          filter: none;
+          text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+          border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-gold::after,
+        .btn-primary::after,
+        .cta::after,
+        .wa-btn::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 30%, rgba(255,255,255,0.6) 60%, transparent 100%);
+          mix-blend-mode: overlay;
+          pointer-events: none;
+          opacity: 0.9;
+          border-radius: inherit;
+        }
+
+        .btn-gold:hover,
+        .btn-primary:hover,
+        .cta:hover,
+        .wa-btn:hover {
+          filter: brightness(1.1) saturate(1.1);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(212, 172, 13, 0.5), inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+
+        .gold-gradient {
+          background: linear-gradient(135deg, var(--gold-stops));
+          position: relative;
+          border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .gold-gradient::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 30%, rgba(255,255,255,0.6) 60%, transparent 100%);
+          mix-blend-mode: overlay;
+          opacity: 0.9;
+          border-radius: inherit;
+        }
+
+        .hero-left {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .hero-title {
+          font-family: "Playfair Display", serif;
+          font-weight: 700;
+          font-size: clamp(32px, 5.2vw, 62px);
+          line-height: 1.12;
+          letter-spacing: -0.01em;
+          margin: 0 0 14px;
+          color: #000;
+          text-wrap: balance;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+          filter: none !important;
+          opacity: 1 !important;
+          text-shadow: none;
+        }
+
+        @media (min-width: 1024px) {
+          .hero-title {
+            font-size: clamp(40px, 4.2vw, 68px);
+          }
+        }
+
+        .btn-lavender {
+          border: 2px solid var(--lavender);
+          background: white;
+          color: #000000;
+          transition: all 0.3s ease;
+        }
+
+        .btn-lavender:hover {
+          background: var(--lavender);
+          color: white;
+          transform: translateY(-2px);
+        }
+
+        .card-hover {
+          transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+          transform: translateY(-8px);
+          border-color: var(--gold);
+          box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .fade-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease;
+        }
+
+        .fade-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .gold-shimmer {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .gold-shimmer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%; 
+          width: 100%;  
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+          transition: left 0.6s;
+        }
+
+        .gold-shimmer:hover::before {
+          left: 100%;
+        }
+
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
+        .parallax {
+          transform: translateY(0);
+          transition: transform 0.1s ease-out;
+        }
+
+        .section-consistent {
+          background: linear-gradient(180deg, #F8F3FA 0%, #FFFFFF 100%);
+          padding: 72px 0;
+        }
+
+        @media (max-width: 1024px) {
+          .section-consistent {
+            padding: 48px 0;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .section-consistent {
+            padding: 40px 0;
+          }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        /* Focus states for accessibility */
+        *:focus {
+          outline: 2px solid #FFD700;
+          outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+          .gold-span {
+            color: #B8942A !important;
+            -webkit-text-fill-color: #B8942A !important;
+          }
+
+          .btn-gold {
+            color: #000000 !important;
+          }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+          .fade-up {
+            opacity: 1;
+            transform: none;
+          }
+
+          .parallax {
+            transform: none !important;
+          }
+
+          .gold-span {
+            animation: none !important;
+          }
+
+          * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+          }
+        }
+      `}</style>
+
+      <Navbar />
+      <Hero />
+      <WhyChooseUs />
+      <ServicesPreview />
+      <InstagramReels />
+      <Gallery />
+      <Testimonials />
+      <Process />
+      <CTABanner />
+      <Contact />
+      <Footer />
     </div>
   );
 }
