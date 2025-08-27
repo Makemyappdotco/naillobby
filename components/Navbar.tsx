@@ -105,7 +105,7 @@ export default function Navbar() {
               </div>
 
               {/* Navigation Links - Reduced spacing */}
-              <div className="flex-1 px-4 py-4">
+              <div className=" px-4 py-4">
                 <nav className="space-y-2">
                   <Link 
                     href="#services" 
