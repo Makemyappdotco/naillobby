@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md border-b border-yellow-400/20 shadow-sm' 
+        ? 'bg-white/95 backdrop-blur-md  border-yellow-400/20 shadow-sm' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,10 +88,10 @@ export default function Navbar() {
 
         {/* Mobile Menu - Optimized */}
         {isMobileMenuOpen && (
-          <div className="md:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto">
-            <div className="min-h-full flex flex-col">
+          <div className="md:hidden fixed inset-0 top-16 bg-white z-40 ">
+            <div className="min-h-full flex flex-col bg-white border-b border-black">
               {/* Header with Logo - Reduced padding */}
-              <div className="px-6 py-4 border-b border-gray-100">
+              <div className="px-6 py-4 border-b border-gray-200">
                 <div className="flex justify-center">
                   <img 
                     src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/15fc10fb8ab5e40af1f8296f96cfb897.png" 
@@ -109,7 +109,7 @@ export default function Navbar() {
                 <nav className="space-y-2">
                   <Link 
                     href="#services" 
-                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-100"
+                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="flex items-center justify-center gap-3">
@@ -122,7 +122,7 @@ export default function Navbar() {
 
                   <Link 
                     href="#gallery" 
-                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-100"
+                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="flex items-center justify-center gap-3">
@@ -135,7 +135,7 @@ export default function Navbar() {
 
                   <Link 
                     href="#testimonials" 
-                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-100"
+                    className="block text-center py-3 text-lg font-medium text-gray-800 hover:text-yellow-600 transition-colors border-b border-gray-200"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <div className="flex items-center justify-center gap-3">

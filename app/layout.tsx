@@ -4,6 +4,7 @@ import { Inter, Pacifico } from 'next/font/google'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import GoldStyles from '../components/GoldStyles'
+import Nail from "./nail.png"
 
 const inter = Inter({
   variable: '--font-inter',
@@ -30,6 +31,37 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Nail Lobby",
   description: "Luxury care, flawless finish, designs that turn heads. Experience the ultimate in nail artistry and pampering.",
+  openGraph: {
+      title: "The Nail Lobby",
+      description:
+        "Luxury care, flawless finish, designs that turn heads. Experience the ultimate in nail artistry and pampering",
+      url: "https://www.thenaillobby.com/",
+      siteName: "The Nail Lobby",
+      images: [
+        {
+          url: Nail.src,
+          width: Nail.width,
+          height: Nail.height,
+          alt: "",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "The Nail Lobby",
+      description:
+        "Luxury care, flawless finish, designs that turn heads. Experience the ultimate in nail artistry and pampering",
+      images: [
+        {
+        url: Nail.src,
+          width: Nail.width,
+          height: Nail.height,
+          alt: "The Nail Lobby",
+        },
+      ],
+    },
 };
 
 export default function RootLayout({
