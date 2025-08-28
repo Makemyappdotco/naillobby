@@ -1,51 +1,88 @@
+"use client";
 
-'use client';
-
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    date: '',
-    time: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    date: "",
+    time: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
+  const [submitStatus, setSubmitStatus] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitStatus('Booking request received! We\'ll confirm your appointment within 2 hours via WhatsApp.');
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', phone: '', service: '', date: '', time: '', message: '' });
-    }, 1000);
-  };
+  //   // Simulate form submission
+  //   setTimeout(() => {
+  //     setSubmitStatus('Booking request received! We\'ll confirm your appointment within 2 hours via WhatsApp.');
+  //     setIsSubmitting(false);
+  //     setFormData({ name: '', email: '', phone: '', service: '', date: '', time: '', message: '' });
+  //   }, 1000);
+  // };
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const whatsappNumber = "919999345615"; // your WhatsApp number with country code
+  const text = `✨ Hi *The Nail Lobby* 💅, I would like to book an appointment! ✨
+  
+Name: ${formData.name}
+Email: ${formData.email}
+ Phone: ${formData.phone}
+ Service: ${formData.service}
+ Date: ${formData.date}
+ Time: ${formData.time}
+ Message: ${formData.message}`;
+
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+  window.open(url, "_blank"); // open in new tab
+};
+
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   // Generate available time slots
   const timeSlots = [
-    '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
-    '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM',
-    '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM',
-    '4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM',
-    '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM'
+    "10:00 AM",
+    "10:30 AM",
+    "11:00 AM",
+    "11:30 AM",
+    "12:00 PM",
+    "12:30 PM",
+    "1:00 PM",
+    "1:30 PM",
+    "2:00 PM",
+    "2:30 PM",
+    "3:00 PM",
+    "3:30 PM",
+    "4:00 PM",
+    "4:30 PM",
+    "5:00 PM",
+    "5:30 PM",
+    "6:00 PM",
+    "6:30 PM",
+    "7:00 PM",
+    "7:30 PM",
   ];
 
   // Get minimum date (today)
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-white">
@@ -55,7 +92,8 @@ export default function Contact() {
             Book Your <span className="section-gold">Appointment</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to get gorgeous nails? Schedule your appointment and we'll confirm within 2 hours!
+            Ready to get gorgeous nails? Schedule your appointment and we'll
+            confirm within 2 hours!
           </p>
         </div>
 
@@ -69,10 +107,14 @@ export default function Contact() {
                   <i className="ri-map-pin-line text-white text-lg"></i>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-black mb-2">Our Location</h3>
+                  <h3 className="font-semibold text-black mb-2">
+                    Our Location
+                  </h3>
                   <p className="text-gray-600">
-                    Shop No. 15, Ground Floor<br />
-                    Rajnagar Extension, Ghaziabad<br />
+                    Shop No. 15, Ground Floor
+                    <br />
+                    Rajnagar Extension, Ghaziabad
+                    <br />
                     Uttar Pradesh 201017
                   </p>
                 </div>
@@ -84,7 +126,9 @@ export default function Contact() {
                   <i className="ri-time-line text-white text-lg"></i>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-black mb-2">Opening Hours</h3>
+                  <h3 className="font-semibold text-black mb-2">
+                    Opening Hours
+                  </h3>
                   <div className="text-gray-600 space-y-1">
                     <p>Monday - Saturday: 10:00 AM - 8:00 PM</p>
                     <p>Sunday: 11:00 AM - 6:00 PM</p>
@@ -132,13 +176,21 @@ export default function Contact() {
           {/* Booking Form */}
           <div className="fade-up">
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6 text-black">Book Your Appointment</h3>
+              <h3 className="text-2xl font-bold mb-6 text-black">
+                Book Your Appointment
+              </h3>
 
-              <form id="booking-form" onSubmit={handleSubmit} className="space-y-6">
+              <form
+                id="booking-form"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
                 {/* Personal Information */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
                       name="name"
@@ -150,7 +202,9 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Phone Number *
+                    </label>
                     <input
                       type="tel"
                       name="phone"
@@ -164,7 +218,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -178,7 +234,9 @@ export default function Contact() {
 
                 {/* Service Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Service *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Select Service *
+                  </label>
                   <select
                     name="service"
                     value={formData.service}
@@ -187,19 +245,33 @@ export default function Contact() {
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none transition-colors text-sm bg-white pr-8"
                   >
                     <option value="">Choose your service</option>
-                    <option value="Classic Manicure - ₹899 (45 min)">Classic Manicure - ₹899 (45 min)</option>
-                    <option value="Gel Extensions - ₹1,599 (90 min)">Gel Extensions - ₹1,599 (90 min)</option>
-                    <option value="Nail Art Design - ₹1,299 (60 min)">Nail Art Design - ₹1,299 (60 min)</option>
-                    <option value="French Manicure - ₹1,099 (50 min)">French Manicure - ₹1,099 (50 min)</option>
-                    <option value="Pedicure Luxury - ₹1,399 (75 min)">Pedicure Luxury - ₹1,399 (75 min)</option>
-                    <option value="Bridal Package - ₹2,999 (3 hours)">Bridal Package - ₹2,999 (3 hours)</option>
+                    <option value="Classic Manicure - ₹899 (45 min)">
+                      Classic Manicure - ₹899 (45 min)
+                    </option>
+                    <option value="Gel Extensions - ₹1,599 (90 min)">
+                      Gel Extensions - ₹1,599 (90 min)
+                    </option>
+                    <option value="Nail Art Design - ₹1,299 (60 min)">
+                      Nail Art Design - ₹1,299 (60 min)
+                    </option>
+                    <option value="French Manicure - ₹1,099 (50 min)">
+                      French Manicure - ₹1,099 (50 min)
+                    </option>
+                    <option value="Pedicure Luxury - ₹1,399 (75 min)">
+                      Pedicure Luxury - ₹1,399 (75 min)
+                    </option>
+                    <option value="Bridal Package - ₹2,999 (3 hours)">
+                      Bridal Package - ₹2,999 (3 hours)
+                    </option>
                   </select>
                 </div>
 
                 {/* Date and Time Selection */}
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Date *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Date *
+                    </label>
                     <input
                       type="date"
                       name="date"
@@ -211,7 +283,9 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Preferred Time *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Preferred Time *
+                    </label>
                     <select
                       name="time"
                       value={formData.time}
@@ -221,7 +295,9 @@ export default function Contact() {
                     >
                       <option value="">Select time slot</option>
                       {timeSlots.map((time) => (
-                        <option key={time} value={time}>{time}</option>
+                        <option key={time} value={time}>
+                          {time}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -229,7 +305,9 @@ export default function Contact() {
 
                 {/* Special Requests */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Special Requests or Design Ideas</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Special Requests or Design Ideas
+                  </label>
                   <textarea
                     name="message"
                     placeholder="Tell us about any specific designs, colors, or special requirements..."
@@ -250,10 +328,15 @@ export default function Contact() {
                     <div className="w-5 h-5 flex items-center justify-center">
                       <i className="ri-gift-line text-purple-600"></i>
                     </div>
-                    <span className="font-semibold text-purple-700">First-Time Client?</span>
+                    <span className="font-semibold text-purple-700">
+                      First-Time Client?
+                    </span>
                   </div>
                   <p className="text-sm text-gray-600">
-                    Enjoy <span className="section-gold font-semibold">20% OFF</span> on your first appointment! Discount will be applied automatically.
+                    Enjoy{" "}
+                    <span className="section-gold font-semibold">20% OFF</span>{" "}
+                    on your first appointment! Discount will be applied
+                    automatically.
                   </p>
                 </div>
 
@@ -262,7 +345,7 @@ export default function Contact() {
                   disabled={isSubmitting || formData.message.length > 500}
                   className="w-full btn-gold py-4 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 whitespace-nowrap gold-shimmer"
                 >
-                  {isSubmitting ? 'Booking...' : 'Book Appointment'}
+                  {isSubmitting ? "Booking..." : "Book Appointment"}
                 </button>
 
                 {submitStatus && (
@@ -277,7 +360,10 @@ export default function Contact() {
                 )}
 
                 <div className="text-center text-sm text-gray-500">
-                  <p>By booking, you agree to our cancellation policy: 24 hours notice required</p>
+                  <p>
+                    By booking, you agree to our cancellation policy: 24 hours
+                    notice required
+                  </p>
                 </div>
               </form>
             </div>
