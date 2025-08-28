@@ -9,18 +9,18 @@ export default function ServicesPreview() {
   const services = {
     Core: [
       {
-        name: 'Acrylic Nail Extensions',
+        name: 'Acrylic Nail Extension',
         benefit: 'Long-lasting strength and durability',
-        duration: '90 min',
-        price: 'From ₹1,299',
+        duration: '75 min',
+        price: 'From ₹899',
         icon: 'ri-scissors-line',
         whatsappMessage: 'Hi! I\'d love to get acrylic extensions. Can we discuss length and design options? 💅✨'
       },
       {
-        name: 'Gel Nail Extensions',
+        name: 'Gel Extension',
         benefit: 'Natural look with flexible finish',
-        duration: '75 min',
-        price: 'From ₹1,499',
+        duration: '90 min',
+        price: 'From ₹999',
         icon: 'ri-drop-line',
         whatsappMessage: 'Hey! I\'m interested in gel extensions for a natural look. What dates do you have available? 🌸'
       },
@@ -28,123 +28,147 @@ export default function ServicesPreview() {
         name: 'Polygel',
         benefit: 'Perfect hybrid of acrylic and gel',
         duration: '100 min',
-        price: 'From ₹1,699',
+        price: 'From ₹1,299',
         icon: 'ri-magic-line',
         whatsappMessage: 'Hi! I want to try polygel - heard it\'s the best of both worlds! When can I book? ✨'
       },
       {
-        name: 'Temporary Nail Extensions',
-        benefit: 'Quick application for special events',
-        duration: '45 min',
-        price: 'From ₹899',
-        icon: 'ri-time-line',
-        whatsappMessage: 'Hello! I need temporary extensions for an event this week. Do you have quick slots? 🎉'
+        name: 'Overlay',
+        benefit: 'Gel/Acrylic over natural nails for strength & growth',
+        duration: '90 min',
+        price: 'From ₹799',
+        icon: 'ri-shield-line',
+        whatsappMessage: 'Hey! I want to strengthen my natural nails with overlays. When are you free? 💪'
       },
       {
-        name: 'Custom Press On Nails',
-        benefit: 'Personalized designs made to fit',
+        name: 'Refill',
+        benefit: 'Maintenance for existing extensions',
         duration: '60 min',
-        price: 'From ₹1,199',
-        icon: 'ri-palette-line',
-        whatsappMessage: 'Hi! I want custom press-ons with my own design ideas. Can we chat about possibilities? 🎨'
+        price: 'From ₹599',
+        icon: 'ri-refresh-line',
+        whatsappMessage: 'Hi! I need a refill for my existing nails. Do you have any slots this week? 🔄'
+      },
+      {
+        name: 'Gellicure',
+        benefit: 'Long-lasting gel polish over natural nails',
+        duration: '30 min',
+        price: 'From ₹499',
+        icon: 'ri-brush-line',
+        whatsappMessage: 'Hi! I need a gellicure that lasts weeks. Do you have slots today or tomorrow? 💅'
+      },
+      {
+        name: 'Russian Manicure',
+        benefit: 'Precise cuticle work with e-file',
+        duration: '45 min',
+        price: 'From ₹599',
+        icon: 'ri-star-line',
+        whatsappMessage: 'Hi! I\'ve heard amazing things about Russian manicures. Can I book this treatment? ⭐'
       },
       {
         name: 'No Tip Extension',
         benefit: 'Natural nail bed extension technique',
-        duration: '85 min',
-        price: 'From ₹1,399',
+        duration: '100 min',
+        price: 'From ₹1,299',
         icon: 'ri-leaf-line',
         whatsappMessage: 'Hey! I prefer the no-tip method for extensions. What\'s your availability this week? 🌿'
       },
       {
         name: 'No Glue Extension',
         benefit: 'Gentle application without harsh adhesives',
-        duration: '70 min',
-        price: 'From ₹1,349',
+        duration: '75 min',
+        price: 'From ₹1,299',
         icon: 'ri-heart-line',
         whatsappMessage: 'Hi! My nails are sensitive - I\'d love the no-glue extension option. Can we book? 💗'
       },
       {
         name: 'Soft Gel Extension',
         benefit: 'Flexible and comfortable wear',
-        duration: '80 min',
-        price: 'From ₹1,449',
+        duration: '75 min',
+        price: 'From ₹1,499',
         icon: 'ri-bubble-chart-line',
         whatsappMessage: 'Hello! I want soft gel extensions for comfort. What colors do you recommend? 💫'
       },
       {
-        name: 'Russian Manicure',
-        benefit: 'Precise cuticle work with e-file',
+        name: 'Temporary Nail Extension',
+        benefit: 'Quick application for special events',
         duration: '90 min',
-        price: 'From ₹1,199',
-        icon: 'ri-star-line',
-        whatsappMessage: 'Hi! I\'ve heard amazing things about Russian manicures. Can I book this treatment? ⭐'
+        price: 'From ₹499',
+        icon: 'ri-time-line',
+        whatsappMessage: 'Hello! I need temporary extensions for an event this week. Do you have quick slots? 🎉'
       },
       {
-        name: 'Overlay Extension',
-        benefit: 'Strengthens natural nails beautifully',
-        duration: '65 min',
-        price: 'From ₹1,099',
-        icon: 'ri-shield-line',
-        whatsappMessage: 'Hey! I want to strengthen my natural nails with overlays. When are you free? 💪'
-      },
-      {
-        name: 'Gellicure',
-        benefit: 'Long-lasting gel polish manicure',
-        duration: '50 min',
-        price: 'From ₹999',
-        icon: 'ri-brush-line',
-        whatsappMessage: 'Hi! I need a gellicure that lasts weeks. Do you have slots today or tomorrow? 💅'
+        name: 'Custom Press On Nails',
+        benefit: 'Personalized designs made to fit',
+        duration: 'Custom',
+        price: 'From ₹499',
+        icon: 'ri-palette-line',
+        whatsappMessage: 'Hi! I want custom press-ons with my own design ideas. Can we chat about possibilities? 🎨'
       }
     ],
     Special: [
       {
         name: 'Bridal Nails',
         benefit: 'Complete wedding nail transformation',
-        duration: '3 hours',
-        price: 'From ₹2,999',
+        duration: '100 min',
+        price: 'From ₹999',
         icon: 'ri-heart-3-line',
         whatsappMessage: 'Hello! I\'m getting married and want gorgeous bridal nails. Can we discuss my wedding theme? 👰💕'
       },
       {
-        name: 'Toe Overlays',
-        benefit: 'Beautiful toe nail enhancement',
-        duration: '60 min',
-        price: 'From ₹899',
-        icon: 'ri-footprint-line',
-        whatsappMessage: 'Hi! I want beautiful toe overlays for sandal season. What designs do you suggest? 👡✨'
-      },
-      {
         name: 'Toe Nail Extension',
         benefit: 'Length and strength for toe nails',
-        duration: '75 min',
-        price: 'From ₹1,199',
+        duration: '60 min',
+        price: 'From ₹799',
         icon: 'ri-add-line',
         whatsappMessage: 'Hey! I need toe extensions for a perfect pedicure look. When can we schedule? 🦶💅'
       },
       {
-        name: 'Nail Strengthening Treatments',
-        benefit: 'Restore weak and damaged nails',
+        name: 'Toe Overlay',
+        benefit: 'Beautiful toe nail enhancement',
         duration: '45 min',
-        price: 'From ₹799',
-        icon: 'ri-first-aid-kit-line',
-        whatsappMessage: 'Hi! My nails are weak and need strengthening treatment. Can you help restore them? 🌱'
+        price: 'From ₹599',
+        icon: 'ri-footprint-line',
+        whatsappMessage: 'Hi! I want beautiful toe overlays for sandal season. What designs do you suggest? 👡✨'
+      },
+      {
+        name: 'Toe Gel Nail Paint',
+        benefit: 'Long-lasting gel polish for toes',
+        duration: '30 min',
+        price: 'From ₹499',
+        icon: 'ri-drop-line',
+        whatsappMessage: 'Hi! I want gel polish on my toes for long-lasting color. Available this week? 🌈'
+      },
+      {
+        name: 'Removal - Hands',
+        benefit: 'Safe removal of existing extensions',
+        duration: '30 min',
+        price: '₹499',
+        icon: 'ri-eraser-line',
+        whatsappMessage: 'Hi! I need to remove my current extensions safely. When can I come in? 🤲'
+      },
+      {
+        name: 'Removal - Foot',
+        benefit: 'Safe toe extension removal',
+        duration: '20 min',
+        price: '₹299 (₹100 with new set)',
+        icon: 'ri-eraser-line',
+        whatsappMessage: 'Hi! I need toe extension removal. Planning to get a new set too! 🦶'
       }
     ],
     'Add-ons': [
       {
         name: 'Nail Repair',
         benefit: 'Fix chips, cracks, and breaks',
-        duration: '15 min',
-        price: 'From ₹299',
+        duration: '10 min',
+        price: '₹100 per finger',
         icon: 'ri-tools-line',
         whatsappMessage: 'Hey! I have a broken nail that needs quick repair. Do you have time today? 🔧'
       },
       {
         name: 'Extra Length',
         benefit: 'Add dramatic length to any service',
-        duration: '20 min',
-        price: 'From ₹399',
+        duration: '15 min',
+        price: '₹100 per finger',
         icon: 'ri-ruler-line',
         whatsappMessage: 'Hi! I want to add extra length to my current nails for a dramatic look. Possible? 📏✨'
       },
@@ -152,7 +176,7 @@ export default function ServicesPreview() {
         name: 'Cuticle Care',
         benefit: 'Professional cuticle treatment',
         duration: '10 min',
-        price: 'From ₹199',
+        price: '₹199',
         icon: 'ri-hand-sanitizer-line',
         whatsappMessage: 'Hello! My cuticles need professional care. Can I add this to my appointment? 🤲'
       }
@@ -235,6 +259,13 @@ export default function ServicesPreview() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Nail Art Note */}
+        <div className="text-center mb-8 fade-up">
+          <p className="text-sm text-gray-500 italic">
+            ✨ Nail art is not included in the above prices. Charges are extra based on design.
+          </p>
         </div>
 
         <div className="text-center fade-up">
