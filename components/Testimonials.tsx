@@ -25,7 +25,7 @@ export default function Testimonials() {
       name: 'Kavya Gupta',
       rating: 5,
       text: 'Such a luxurious experience! From the moment I walked in, I felt pampered. The pedicure was heavenly and my nails look amazing. Highly recommend to everyone!',
-      service: 'Luxury Pedicure'
+      service: 'Acrylic Extensions'
     },
     {
       name: 'Riya Jain',

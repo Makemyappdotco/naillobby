@@ -111,7 +111,7 @@ Email: ${formData.email}
                     Our Location
                   </h3>
                   <p className="text-gray-600">
-                    Shop No. 15, Ground Floor
+                    UST-44, Aura Plaza Market
                     <br />
                     Rajnagar Extension, Ghaziabad
                     <br />
@@ -130,8 +130,8 @@ Email: ${formData.email}
                     Opening Hours
                   </h3>
                   <div className="text-gray-600 space-y-1">
-                    <p>Monday - Saturday: 10:00 AM - 8:00 PM</p>
-                    <p>Sunday: 11:00 AM - 6:00 PM</p>
+                    <p>Monday - Sunday: 11:00 AM - 8:30 PM</p>
+                    {/* <p>Sunday: 11:00 AM - 6:00 PM</p> */}
                   </div>
                 </div>
               </div>
@@ -334,7 +334,7 @@ Email: ${formData.email}
                   </div>
                   <p className="text-sm text-gray-600">
                     Enjoy{" "}
-                    <span className="section-gold font-semibold">20% OFF</span>{" "}
+                    <span className="section-gold font-semibold">30% OFF</span>{" "}
                     on your first appointment! Discount will be applied
                     automatically.
                   </p>
