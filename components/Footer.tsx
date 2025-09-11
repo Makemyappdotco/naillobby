@@ -74,7 +74,7 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <i className="ri-map-pin-line text-yellow-400 mt-1"></i>
                 <span className="text-sm">
-                  Shop No. 15, Ground Floor<br />
+                  UST-44, Aura Plaza Market<br />
                   Rajnagar Extension, Ghaziabad
                 </span>
               </li>
@@ -84,7 +84,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <i className="ri-time-line text-yellow-400"></i>
-                <span className="text-sm">Mon-Sat: 10AM-8PM</span>
+                <span className="text-sm">Mon-Sun: 11AM-8:30PM</span>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            2024 The Nail Lobby. All rights reserved.
+            2025 The Nail Lobby. All rights reserved.
           </p>
           
           <div className="flex items-center gap-2 text-sm text-gray-400">
