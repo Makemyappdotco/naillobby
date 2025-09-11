@@ -126,7 +126,7 @@ export default function InstagramReels() {
             {reels.map((reel) => (
               <div
                 key={reel.id}
-                className="flex-shrink-0 w-[300px]"
+                className="flex-shrink-0 w-[325px]"
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-xl bg-black aspect-[9/16]">
                   {/* Instagram Embed */}
@@ -153,11 +153,11 @@ export default function InstagramReels() {
                   </blockquote>
                   
                   {/* Title Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
-                    <h3 className="text-white font-semibold text-base leading-tight bg-black/60 backdrop-blur-sm rounded-xl px-4 py-3">
+                  {/* <div className="absolute bottom-4 left-4 right-4 z-20 pointer-events-none">
+                    <h3 style={{color:"white"}} className="text-white text-center font-semibold text-base leading-tight bg-black/60 backdrop-blur-sm rounded-xl px-4 py-3">
                       {reel.title}
                     </h3>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}

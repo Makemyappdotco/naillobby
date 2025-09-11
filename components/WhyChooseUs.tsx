@@ -21,7 +21,7 @@ export default function WhyChooseUs() {
     {
       icon: 'ri-leaf-line',
       title: 'Relaxing Atmosphere',
-      description: 'Serene, spa-like environment designed to provide the ultimate relaxation and pampering experience.'
+      description: 'Serene environment designed to provide the ultimate relaxation and pampering experience.'
     }
   ];
 

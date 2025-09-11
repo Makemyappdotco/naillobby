@@ -44,7 +44,7 @@ export default function ServicesPreview() {
         name: 'Refill',
         benefit: 'Maintenance for existing extensions',
         duration: '60 min',
-        price: 'From ₹699',
+        price: 'From ₹799',
         icon: 'ri-refresh-line',
         whatsappMessage: 'Hi! I need a refill for my existing nails. Do you have any slots this week? 🔄'
       },

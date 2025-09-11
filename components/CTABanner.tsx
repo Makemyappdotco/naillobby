@@ -46,7 +46,7 @@ export default function CTABanner() {
           {/* Special Offer */}
           <div className="mt-8 inline-block bg-white/60 backdrop-blur-sm rounded-2xl px-6 py-3 border border-purple-200">
             <p className="text-black font-semibold">
-              <span className="section-gold">Special Offer:</span> First-time clients get 20% off on any service!
+              <span className="section-gold">Special Offer:</span> First-time clients get 30% off on any service!
             </p>
           </div>
         </div>

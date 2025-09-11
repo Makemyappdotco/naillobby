@@ -30,6 +30,13 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+   const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
+
   return (
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -66,13 +73,13 @@ export default function Navbar() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <a
-              href="https://wa.me/919999345615"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold btn-primary px-6 py-3 rounded-full font-semibold whitespace-nowrap"
-            >
-              Book on WhatsApp
-            </a>
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-gold btn-primary px-6 py-3 rounded-full font-semibold whitespace-nowrap"
+    >
+      Book via WhatsApp
+    </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -168,7 +175,7 @@ export default function Navbar() {
                     Ready for Beautiful Nails?
                   </h3>
                   <a
-                    href="https://wa.me/919999345615"
+                    href={url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gold btn-primary w-full px-6 py-3 rounded-full font-semibold text-base inline-flex items-center justify-center gap-3 whitespace-nowrap"
