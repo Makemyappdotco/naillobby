@@ -4,6 +4,12 @@
 import Link from 'next/link';
 
 export default function Footer() {
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
   return (
     <footer className="bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +36,7 @@ export default function Footer() {
                 <i className="ri-instagram-line text-white"></i>
               </a>
               <a
-                href="https://wa.me/919999345615"
+                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300"
