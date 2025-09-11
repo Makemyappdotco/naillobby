@@ -2,6 +2,12 @@
 'use client';
 
 export default function Process() {
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
   const steps = [
     {
       icon: 'ri-palette-line',
@@ -64,7 +70,7 @@ export default function Process() {
         {/* CTA */}
         <div className="text-center mt-16 fade-up">
           <a
-            href="https://wa.me/919999345615"
+            href={url}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2 whitespace-nowrap gold-shimmer"

@@ -2,6 +2,12 @@
 'use client';
 
 export default function CTABanner() {
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
   return (
     <section className="py-16 md:py-24 section-consistent relative overflow-hidden">
       {/* Background Pattern */}
@@ -24,7 +30,7 @@ export default function CTABanner() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://wa.me/919999345615"
+               href={url}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold btn-primary cta wa-btn px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2 transition-all duration-300 shadow-xl hover:shadow-2xl whitespace-nowrap"

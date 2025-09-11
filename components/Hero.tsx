@@ -12,6 +12,13 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
+
   return (
     <section className="hero relative min-h-screen overflow-hidden" style={{ background: '#F8F3FA' }}>
       {/* Hero-specific styles */}
@@ -115,7 +122,7 @@ export default function Hero() {
 
             <div className="hero-ctas flex flex-col sm:flex-row gap-4">
               <a
-                href="https://wa.me/919999345615"
+                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-gold btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2 whitespace-nowrap"

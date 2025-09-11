@@ -84,6 +84,13 @@ Email: ${formData.email}
   // Get minimum date (today)
   const today = new Date().toISOString().split("T")[0];
 
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,7 +153,7 @@ Email: ${formData.email}
                   <div className="space-y-2">
                     <p className="text-gray-600">+91 99993 45615</p>
                     <a
-                      href="https://wa.me/919999345615"
+                      href={url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors"

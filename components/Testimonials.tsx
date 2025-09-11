@@ -2,6 +2,12 @@
 'use client';
 
 export default function Testimonials() {
+     const phone = "919999345615";
+  const message =
+    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
+  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
+    message
+  )}`;
   const testimonials = [
     {
       name: 'Priya Sharma',
@@ -107,7 +113,7 @@ export default function Testimonials() {
             Ready to experience the luxury yourself?
           </p>
           <a
-            href="https://wa.me/919999345615"
+             href={url}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold btn-primary cta px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2 whitespace-nowrap"
