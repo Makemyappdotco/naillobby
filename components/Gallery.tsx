@@ -17,14 +17,14 @@ export default function Gallery() {
   );
 
   const galleryImages = [
-    {
-      src: img,
-      alt: "Golden Nail Art Design",
-    },
-    {
-      src: img2,
-      alt: "French Manicure Perfection",
-    },
+    // {
+    //   src: img,
+    //   alt: "Golden Nail Art Design",
+    // },
+    // {
+    //   src: img2,
+    //   alt: "French Manicure Perfection",
+    // },
     {
       src: img3,
       alt: "Gel Extensions Art",
@@ -44,10 +44,6 @@ export default function Gallery() {
     {
       src: img7,
       alt: "Minimalist Design",
-    },
-    {
-      src: img7,
-      alt: "Holiday Nail Art",
     },
     {
       src: img8,
