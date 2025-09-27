@@ -165,11 +165,10 @@ Email: ${formData.email}
                 </div>
               </div>
             </div>
-
             {/* Map */}
             <div className="mt-8 rounded-2xl overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.2399044140134!2d77.43154631455065!3d28.625293982442777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5b8f2e8b2cd%3A0x1a9e3a7e9c0a8b2d!2sRajnagar%20Extension%2C%20Ghaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.4990992521525!2d77.4317487!3d28.7046268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf14a345aa265%3A0xb291a11bf810ad96!2sThe%20Nail%20Lobby%20-%20Best%20Nail%20Extension%20Studio%20in%20Rajnagar%20Extension!5e0!3m2!1sen!2sin!4v1758977182101!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}
