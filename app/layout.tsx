@@ -80,12 +80,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
-        <a
+        {/* <a
           href="https://wa.me/919999345615?text=Hi%20The%20Nail%20Lobby"
           className="wa-float"
         >
           <i className="ri-whatsapp-fill text-3xl"></i> Book Now
-        </a>
+        </a> */}
       </body>
     </html>
   )
