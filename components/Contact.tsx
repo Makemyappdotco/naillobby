@@ -329,7 +329,7 @@ Email: ${formData.email}
                 </div>
 
                 {/* First Time Client Offer */}
-                <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-purple-200">
+                {/* <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-purple-200">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-5 h-5 flex items-center justify-center">
                       <i className="ri-gift-line text-purple-600"></i>
@@ -344,7 +344,7 @@ Email: ${formData.email}
                     on your first appointment! Discount will be applied
                     automatically.
                   </p>
-                </div>
+                </div> */}
 
                 <button
                   type="submit"
