@@ -71,14 +71,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <Head>
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
-      </Head>
+ <html lang="en">
+      <head>
+        <link
+          href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+          rel="stylesheet"
+        />
+      </head>
       <body className={inter.className}>
-        <GoldStyles />
         {children}
-        <a href="https://wa.me/919999345615?text=Hi%20The%20Nail%20Lobby" className="wa-float">Book Now</a>
+        <a
+          href="https://wa.me/919999345615?text=Hi%20The%20Nail%20Lobby"
+          className="wa-float"
+        >
+          <i className="ri-whatsapp-fill text-3xl"></i> Book Now
+        </a>
       </body>
     </html>
   )
