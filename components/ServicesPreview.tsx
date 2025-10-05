@@ -52,7 +52,7 @@ export default function ServicesPreview() {
         name: 'Gellicure',
         benefit: 'Long-lasting gel polish over natural nails',
         duration: '30 min',
-        price: 'From ₹499',
+        price: 'From ₹599',
         icon: 'ri-brush-line',
         whatsappMessage: 'Hi! I need a gellicure that lasts weeks. Do you have slots today or tomorrow? 💅'
       },
@@ -134,7 +134,7 @@ export default function ServicesPreview() {
         name: 'Toe Gel Nail Paint',
         benefit: 'Long-lasting gel polish for toes',
         duration: '30 min',
-        price: 'From ₹499',
+        price: 'From ₹599',
         icon: 'ri-drop-line',
         whatsappMessage: 'Hi! I want gel polish on my toes for long-lasting color. Available this week? 🌈'
       },
