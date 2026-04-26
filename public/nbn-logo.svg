@@ -1,9 +1,0 @@
-<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="1200" fill="transparent"/>
-  <path d="M175 531C175 306.7 363.6 125 596.5 125C829.4 125 1018 306.7 1018 531" stroke="#D4A24C" stroke-width="22" stroke-linecap="square"/>
-  <path d="M175 1030V1095H1018V1030" stroke="#D4A24C" stroke-width="22" stroke-linecap="square"/>
-  <path d="M601 305C601 384 569 416 491 416C569 416 601 448 601 527C601 448 633 416 711 416C633 416 601 384 601 305Z" fill="#D4A24C"/>
-  <text x="600" y="410" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="22" fill="#0F3D5E" transform="rotate(-1 600 410)">NOTHING BEFORE</text>
-  <text x="600" y="855" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="300" font-weight="500" letter-spacing="8" fill="#0F3D5E">N  ILS</text>
-  <path d="M455 510L421 807H487L473 982C472 995 486 1005 498 999L524 987C530 984 533 978 532 971L506 807H571L535 510H455Z" fill="#0F3D5E"/>
-</svg>
