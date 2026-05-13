@@ -9,6 +9,10 @@ import img5 from "./assets/nail5.jpg";
 import img6 from "./assets/nail6.jpg";
 import img7 from "./assets/nail7.jpg";
 import img8 from "./assets/nail8.jpg";
+import img9 from "./assets/nail9.jpeg";
+import img10 from "./assets/nail10.jpeg";
+import img11 from "./assets/nail11.jpeg";
+import img12 from "./assets/nail12.jpeg";
 import { StaticImageData } from "next/image";
 
 export default function Gallery() {
@@ -49,6 +53,23 @@ export default function Gallery() {
       src: img8,
       alt: "Holiday Nail Art",
     },
+    {
+      src: img9,
+      alt: "Holiday Nail Art",
+    },
+    {
+      src: img10,
+      alt: "Holiday Nail Art",
+    },
+    {
+      src: img11,
+      alt: "Holiday Nail Art",
+    },
+    {
+      src: img12,
+      alt: "Holiday Nail Art",
+    },
+    
   ];
 
   return (

@@ -20,7 +20,7 @@ export default function ServicesPreview() {
         name: 'Gel Extension',
         benefit: 'Natural look with flexible finish',
         duration: '90 min',
-        price: 'From ₹999',
+        price: 'From ₹1,099',
         icon: 'ri-drop-line',
         whatsappMessage: 'Hey! I\'m interested in gel extensions for a natural look. What dates do you have available? 🌸'
       },
@@ -84,7 +84,7 @@ export default function ServicesPreview() {
         name: 'Soft Gel Extension',
         benefit: 'Flexible and comfortable wear',
         duration: '75 min',
-        price: 'From ₹1,499',
+        price: 'From ₹1,299',
         icon: 'ri-bubble-chart-line',
         whatsappMessage: 'Hello! I want soft gel extensions for comfort. What colors do you recommend? 💫'
       },

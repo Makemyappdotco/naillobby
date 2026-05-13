@@ -25,10 +25,24 @@ export default function InstagramReels() {
       title: 'French Manicure Transformation'
     },
     {
-      id: 4,
+      id: 5,
       embedId: 'DOYzkXNkl7i',
       title: 'Luxury Pedicure Experience'
+    },
+    {
+      id: 6,
+      embedId: 'DVl0n2qkpdS',
+      title: 'Luxury Pedicure Experience 1'
+    },{
+      id: 7,
+      embedId: 'DQPNqzckiL9',
+      title: 'Luxury Pedicure Experience 2'
+    },{
+      id: 8,
+      embedId: 'DTz-viCgjx8',
+      title: 'Luxury Pedicure Experience 3'
     }
+    
   ];
 
   const scroll = (direction: 'left' | 'right') => {
