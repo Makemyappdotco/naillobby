@@ -12,7 +12,7 @@ export default function ServicesPreview() {
         name: 'Acrylic Nail Extension',
         benefit: 'Long-lasting strength and durability',
         duration: '75 min',
-        price: 'From ₹999',
+        price: 'From ₹899',
         icon: 'ri-scissors-line',
         whatsappMessage: 'Hi! I\'d love to get acrylic extensions. Can we discuss length and design options? 💅✨'
       },
@@ -44,7 +44,7 @@ export default function ServicesPreview() {
         name: 'Refill',
         benefit: 'Maintenance for existing extensions',
         duration: '60 min',
-        price: 'From ₹799',
+        price: 'From ₹599',
         icon: 'ri-refresh-line',
         whatsappMessage: 'Hi! I need a refill for my existing nails. Do you have any slots this week? 🔄'
       },
@@ -52,7 +52,7 @@ export default function ServicesPreview() {
         name: 'Gellicure',
         benefit: 'Long-lasting gel polish over natural nails',
         duration: '30 min',
-        price: 'From ₹599',
+        price: 'From ₹499',
         icon: 'ri-brush-line',
         whatsappMessage: 'Hi! I need a gellicure that lasts weeks. Do you have slots today or tomorrow? 💅'
       },
@@ -92,7 +92,7 @@ export default function ServicesPreview() {
         name: 'Temporary Nail Extension',
         benefit: 'Quick application for special events',
         duration: '90 min',
-        price: 'From ₹599',
+        price: 'From ₹499',
         icon: 'ri-time-line',
         whatsappMessage: 'Hello! I need temporary extensions for an event this week. Do you have quick slots? 🎉'
       },
@@ -134,7 +134,7 @@ export default function ServicesPreview() {
         name: 'Toe Gel Nail Paint',
         benefit: 'Long-lasting gel polish for toes',
         duration: '30 min',
-        price: 'From ₹599',
+        price: 'From ₹499',
         icon: 'ri-drop-line',
         whatsappMessage: 'Hi! I want gel polish on my toes for long-lasting color. Available this week? 🌈'
       },

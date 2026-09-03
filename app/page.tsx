@@ -1,15 +1,18 @@
-
 'use client';
 
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
+import AnniversaryConfetti from '../components/AnniversaryConfetti';
+import ServicesMarquee from '../components/ServicesMarquee';
 import WhyChooseUs from '../components/WhyChooseUs';
 import ServicesPreview from '../components/ServicesPreview';
+import AcademyPromo from '../components/AcademyPromo';
 import InstagramReels from '../components/InstagramReels';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
 import Process from '../components/Process';
+import FAQ from '../components/FAQ';
 import CTABanner from '../components/CTABanner';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -282,12 +285,16 @@ export default function Home() {
 
       <Navbar />
       <Hero />
+      <AnniversaryConfetti />
+      <ServicesMarquee />
       <WhyChooseUs />
       <ServicesPreview />
+      <AcademyPromo />
       <InstagramReels />
       <Gallery />
       <Testimonials />
       <Process />
+      <FAQ />
       <CTABanner />
       <Contact />
       <Footer />

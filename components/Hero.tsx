@@ -1,23 +1,36 @@
-
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const media = window.matchMedia('(min-width: 768px)');
+    const updateDevice = () => setIsDesktop(media.matches);
+    updateDevice();
+    media.addEventListener('change', updateDevice);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      media.removeEventListener('change', updateDevice);
+    };
   }, []);
 
-     const phone = "919999345615";
-  const message =
-    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
-  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-    message
-  )}`;
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const parallaxY = isDesktop ? scrollY * 0.1 : 0;
 
   return (
     <section className="hero relative min-h-screen overflow-hidden" style={{ background: '#F8F3FA' }}>
@@ -108,7 +121,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-100/20 via-transparent to-yellow-100/20 animate-gradient-shift" style={{ pointerEvents: 'none', zIndex: -2 }}></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-6 lg:pb-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="text-left space-y-4 fade-up hero-left">
@@ -122,7 +135,7 @@ export default function Hero() {
 
             <div className="hero-ctas flex flex-col sm:flex-row gap-4">
               <a
-                 href={url}
+                href="https://wa.me/919999345615"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-gold btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2 whitespace-nowrap"
@@ -145,18 +158,31 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="hero-media relative fade-up">
+          {/* Right Video - 9:16 aspect ratio */}
+          <div className="hero-media relative fade-up flex items-center justify-center">
             <div
-              className="relative z-10 parallax rounded-3xl overflow-hidden shadow-2xl"
-              style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+              className="relative z-10 parallax rounded-3xl overflow-hidden max-h-[520px] md:max-h-[600px] aspect-[9/16] mx-auto border-[3px] border-[#D4AC0D] shadow-[0_0_40px_rgba(212,172,13,0.25),0_25px_50px_-12px_rgba(0,0,0,0.25)]"
+              style={{ transform: `translateY(${parallaxY}px)` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-transparent z-10"></div>
-              <img
-                src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/a9944a172bb43d11037b1a5285677ec0.png"
-                alt="Luxury nail care at The Nail Lobby"
-                className="w-full h-[500px] md:h-[600px] object-cover object-top"
+              <video
+                ref={videoRef}
+                className="w-full h-full object-cover"
+                src="https://storage.helloreaddy.io/project_files/913d7134-42dc-4bbf-816f-7965010bb61a/3270c9af-4e07-4638-a49b-9d0cc4e8354b_Copy-of-IMG_3646-1.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
               />
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-4 right-4 z-20 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors cursor-pointer"
+                aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+              >
+                <div className="w-5 h-5 flex items-center justify-center">
+                  <i className={isMuted ? 'ri-volume-mute-line text-lg text-gray-800' : 'ri-volume-up-line text-lg text-gray-800'}></i>
+                </div>
+              </button>
             </div>
 
             {/* Floating Elements - animated */}

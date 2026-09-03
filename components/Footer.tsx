@@ -1,30 +1,23 @@
-
 'use client';
 
 import Link from 'next/link';
 
 export default function Footer() {
-     const phone = "919999345615";
-  const message =
-    "Hello The Nail Lobby ✨, I’d like to book an appointment. Please share the available slots. 💅";
-  const url = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(
-    message
-  )}`;
   return (
     <footer className="bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo & Description */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link href="/" className="inline-block mb-4">
               <img 
                 src="https://static.readdy.ai/image/a63ec0b6f34fb9b66d50256c348ce6a2/15fc10fb8ab5e40af1f8296f96cfb897.png" 
                 alt="The Nail Lobby"
-                className="h-12 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
-              Rajnagar's premier nail salon offering luxury treatments, premium products, and exceptional service in a relaxing atmosphere.
+              Rajnagar's premium nail salon offering luxury treatments, premium products, and exceptional service in a relaxing atmosphere.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -36,7 +29,7 @@ export default function Footer() {
                 <i className="ri-instagram-line text-white"></i>
               </a>
               <a
-                 href={url}
+                href="https://wa.me/919999345615"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-300"
@@ -61,8 +54,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/academy" className="text-gray-400 hover:text-yellow-400 transition-colors">
+                  Academy
+                </Link>
+              </li>
+              <li>
                 <Link href="#testimonials" className="text-gray-400 hover:text-yellow-400 transition-colors">
                   Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="#faq" className="text-gray-400 hover:text-yellow-400 transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
@@ -80,7 +83,7 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <i className="ri-map-pin-line text-yellow-400 mt-1"></i>
                 <span className="text-sm">
-                  UST-44, Aura Plaza Market<br />
+                  Shop No. 15, Ground Floor<br />
                   Rajnagar Extension, Ghaziabad
                 </span>
               </li>
@@ -90,7 +93,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <i className="ri-time-line text-yellow-400"></i>
-                <span className="text-sm">Mon-Sun: 11AM-8:30PM</span>
+                <span className="text-sm">Mon-Sat: 10AM-8PM</span>
               </li>
             </ul>
           </div>
@@ -99,7 +102,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-400 text-sm">
-            2025 The Nail Lobby. All rights reserved.
+            2026 The Nail Lobby. All rights reserved.
           </p>
           
           <div className="flex items-center gap-2 text-sm text-gray-400">
