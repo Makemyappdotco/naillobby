@@ -1,4 +1,183 @@
-@import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Design tokens. One gold, used for accents only.
+   Text gold is dark enough to pass contrast on the light backgrounds.
+------------------------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --surface: #faf6fb;        /* soft lavender tint used for alternate sections */
+  --surface-2: #f3ecf6;
+  --border: #ece4ef;
+  --text: #17121a;
+  --text-muted: #5b5560;
+  --accent: #c9962e;         /* gold fill (buttons, icons) */
+  --accent-strong: #8a5f0a;  /* gold text on light backgrounds, 4.9:1 on white */
+  --accent-soft: #fbf3df;    /* tinted gold for chips and icon tiles */
+  --lavender: #75528c;       /* secondary accent for small details */
+  --nav-h: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Poppins', ui-sans-serif, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Anchor links land below the fixed navbar instead of under it */
+section[id] {
+  scroll-margin-top: var(--nav-h);
+}
+
+/* Keyboard focus only, not on every mouse click or tap */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  /* Section heading accent word: solid deep gold so it stays readable */
+  .text-gold {
+    color: var(--accent-strong);
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+  @media (min-width: 1024px) {
+    .section { padding: 5.5rem 0; }
+  }
+  .section-tint {
+    background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight;
+  }
+  .section-sub {
+    @apply text-base md:text-lg max-w-2xl mx-auto;
+    color: var(--text-muted);
+  }
+
+  /* Primary button: gold with dark text (passes contrast, reads as gold not plastic) */
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap;
+    background: linear-gradient(135deg, #e4b84a 0%, #c9962e 55%, #b98620 100%);
+    color: #1f1404;
+    box-shadow: 0 6px 18px -6px rgba(185, 134, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+    box-shadow: 0 10px 24px -8px rgba(185, 134, 32, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  .btn-gold:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Secondary button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap bg-white;
+    color: var(--accent-strong);
+    border: 2px solid var(--accent);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .btn-outline:hover {
+    transform: translateY(-2px);
+    background: var(--accent-soft);
+  }
+
+  .icon-tile {
+    @apply flex items-center justify-center rounded-full flex-shrink-0;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+  }
+
+  .card {
+    @apply bg-white rounded-2xl;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px -14px rgba(60, 30, 70, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: #e6cf98;
+    box-shadow: 0 18px 32px -16px rgba(120, 80, 20, 0.25);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal. Content is visible by default; it only starts hidden
+   once JS has loaded (html.js), so nothing disappears if JS fails.
+   Uses opacity + translate on a wrapper so card hover transforms still work.
+------------------------------------------------------------------- */
+html.js .fade-up {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), translate 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.js .fade-up.visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.2s ease-out both; }
+.animate-slide-down { animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .fade-up { opacity: 1; translate: none; transition: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; row-gap: 8px; }
+  .marquee-track [aria-hidden="true"] { display: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

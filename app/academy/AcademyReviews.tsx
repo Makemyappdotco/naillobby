@@ -1,38 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const videoReviews = [
-  {
-    src: '',
-    name: 'Nail Lobby Student',
-    location: 'Ghaziabad',
-    course: 'Nail Academy',
-    play: 'https://storage.helloreaddy.io/project_files/913d7134-42dc-4bbf-816f-7965010bb61a/0767a93f-b8e5-4382-bd8b-a1afcb6aa5a9_IMG_7889.mp4'
-  },
-  {
-    src: '',
-    name: 'Nail Lobby Student',
-    location: 'Ghaziabad',
-    course: 'Nail Academy',
-    play: 'https://storage.helloreaddy.io/project_files/913d7134-42dc-4bbf-816f-7965010bb61a/58ec6e9e-bc7b-4441-b4b9-2abd03aa6ecd_IMG_3130.mp4'
-  },
-  {
-    src: '',
-    name: 'Nail Lobby Student',
-    location: 'Ghaziabad',
-    course: 'Nail Academy',
-    play: 'https://storage.helloreaddy.io/project_files/913d7134-42dc-4bbf-816f-7965010bb61a/91d0c4b2-bc9f-4bf7-8129-72ad85ab84e8_IMG_3206.mp4'
-  }
+  { video: '/media/review1.mp4', poster: '/media/review1-poster.jpg', name: 'Nail Lobby Student', location: 'Ghaziabad' },
+  { video: '/media/review2.mp4', poster: '/media/review2-poster.jpg', name: 'Nail Lobby Student', location: 'Ghaziabad' },
+  { video: '/media/review3.mp4', poster: '/media/review3-poster.jpg', name: 'Nail Lobby Student', location: 'Ghaziabad' },
 ];
 
+// TODO (client): confirm these written reviews are from real students.
 const writtenReviews = [
   {
     name: 'Aarti Mishra',
     location: 'Vasundhara, Ghaziabad',
-    course: 'Advance Nail Mastery',
+    course: 'Advanced Nail Mastery',
     rating: 5,
-    text: 'I had zero experience before joining and now I run my own small nail setup from home. Ma\'am taught everything from extensions to bridal nails one-on-one. Worth every rupee, honestly!'
+    text: 'I had zero experience before joining and now I run my own small nail setup from home. Ma\'am taught everything from extensions to nail art one-on-one. Worth every rupee, honestly!'
   },
   {
     name: 'Neha Yadav',
@@ -44,7 +27,7 @@ const writtenReviews = [
   {
     name: 'Sakshi Chauhan',
     location: 'Sahibabad, Ghaziabad',
-    course: 'Advance Nail Mastery',
+    course: 'Advanced Nail Mastery',
     rating: 5,
     text: 'From a complete novice to doing cat eye and chrome nails confidently in 20 days. The individual attention is real, no rushing, no batch crowd. Best decision I made for my career.'
   },
@@ -53,12 +36,12 @@ const writtenReviews = [
     location: 'Raj Nagar, Ghaziabad',
     course: 'Basic Nail Mastery',
     rating: 5,
-    text: 'Clean, professional and so supportive. I loved practising on real hands. The lifetime WhatsApp support helped me even after finishing. Amazing academy in Ghaziabad!'
+    text: 'Clean, professional and so supportive. I loved practicing on real hands. The lifetime WhatsApp support helped me even after finishing. Amazing academy in Ghaziabad!'
   },
   {
     name: 'Ishita Agarwal',
     location: 'Noida Extension',
-    course: 'Advance Nail Mastery',
+    course: 'Advanced Nail Mastery',
     rating: 5,
     text: 'Travelled all the way from Noida and it was worth it. Learned extensions, Russian manicure and advanced nail art. Ma\'am also shared tips on pricing and getting my first clients.'
   },
@@ -71,157 +54,93 @@ const writtenReviews = [
   }
 ];
 
-const renderStars = (rating: number) => {
-  return Array.from({ length: 5 }, (_, index) => (
-    <i
-      key={index}
-      className={index < rating ? 'ri-star-fill text-yellow-500' : 'ri-star-line text-gray-300'}
-    ></i>
-  ));
-};
 
 export default function AcademyReviews() {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>(null);
 
-  const slides = [...videoReviews, ...videoReviews];
+  useEffect(() => {
+    if (!active) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setActive(null);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [active]);
 
   return (
-    <section id="reviews" className="section-consistent">
-      <style jsx>{`
-        @keyframes slideReviews {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .reviews-track {
-          display: flex;
-          width: max-content;
-          animation: slideReviews 26s linear infinite;
-        }
-        .reviews-track:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
+    <section id="reviews" className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 fade-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-black">
-            Student <span className="section-gold">Reviews</span>
+        <div className="text-center mb-10 fade-up">
+          <h2 className="section-title">
+            Student <span className="text-gold">reviews</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Watch and read genuine stories from our students across Ghaziabad and beyond.
-            Real people, real results.
-          </p>
+          <p className="section-sub">Hear from students who trained with us.</p>
         </div>
 
-        {/* Video reviews slider */}
-        <div className="mb-16 fade-up overflow-hidden">
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-black flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center">
-              <i className="ri-video-line text-white"></i>
-            </div>
-            Video Reviews
-          </h3>
-
-          <div className="relative reviews-track gap-5 py-2">
-            {slides.map((review, index) => (
-              <div
-                key={index}
-                className="group relative shrink-0 rounded-2xl overflow-hidden shadow-lg cursor-pointer bg-black"
-                style={{ width: 'min(240px, 34vw)', aspectRatio: '9/16' }}
-                onClick={() => setActiveVideo(review.play)}
-              >
-                <video
-                  src={review.play}
-                  poster={review.src || undefined}
-                  muted
-                  loop
-                  autoPlay
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none"></div>
-
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                  <p className="font-semibold">{review.name}</p>
-                  <p className="text-xs text-white/80 flex items-center gap-1">
-                    <i className="ri-map-pin-line"></i>
-                    {review.location}
-                  </p>
-                  <p className="text-[11px] text-yellow-300 mt-1">{review.course}</p>
-                </div>
-
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
-                    <i className="ri-fullscreen-fill text-[#D4AC0D]"></i>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <h3 className="font-sans text-lg md:text-xl font-semibold mb-4 flex items-center gap-2">
+          <i className="ri-video-line text-[var(--accent-strong)]" aria-hidden="true"></i>
+          Video reviews
+        </h3>
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2 mb-12">
+          {videoReviews.map((r) => (
+            <button
+              key={r.video}
+              type="button"
+              onClick={() => setActive(r.video)}
+              className="group relative snap-center shrink-0 w-[62%] sm:w-auto aspect-[9/16] rounded-2xl overflow-hidden bg-black shadow-lg text-left"
+              aria-label={`Play video review from ${r.name}`}
+            >
+              <img src={r.poster} alt="" width={720} height={1280} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+              <span className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" aria-hidden="true" />
+              <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+                <span className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-xl transition-transform group-hover:scale-110">
+                  <i className="ri-play-fill text-3xl text-[var(--accent-strong)] ml-1"></i>
+                </span>
+              </span>
+              <span className="absolute bottom-0 inset-x-0 p-4 text-white">
+                <span className="block font-semibold">{r.name}</span>
+                <span className="block text-xs text-white/80">{r.location}</span>
+              </span>
+            </button>
+          ))}
         </div>
 
-        {/* Written reviews */}
-        <div className="fade-up">
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-black flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-300 to-purple-400 rounded-full flex items-center justify-center">
-              <i className="ri-chat-quote-line text-white"></i>
-            </div>
-            Written Reviews
-          </h3>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {writtenReviews.map((review, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 shadow-md card-hover"
-              >
-                <div className="flex gap-1 mb-3">
-                  {renderStars(review.rating)}
-                </div>
-                <p className="text-gray-700 leading-relaxed mb-5 text-sm">"{review.text}"</p>
-                <div className="border-t border-gray-100 pt-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-semibold text-black">{review.name}</h4>
-                      <p className="text-xs text-gray-500 flex items-center gap-1">
-                        <i className="ri-map-pin-line"></i>
-                        {review.location}
-                      </p>
-                    </div>
-                    <span className="text-xs font-semibold text-[#B7950B] bg-yellow-50 px-3 py-1.5 rounded-full">
-                      {review.course}
-                    </span>
-                  </div>
-                </div>
+        <h3 className="font-sans text-lg md:text-xl font-semibold mb-4 flex items-center gap-2">
+          <i className="ri-chat-quote-line text-[var(--accent-strong)]" aria-hidden="true"></i>
+          Written reviews
+        </h3>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {writtenReviews.map((r) => (
+            <figure key={r.name} className="card p-6 flex flex-col">
+              <div className="flex gap-0.5 mb-3 text-[var(--accent)]" aria-label={`${r.rating} out of 5 stars`}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <i key={i} className={i < r.rating ? 'ri-star-fill' : 'ri-star-line'} aria-hidden="true"></i>
+                ))}
               </div>
-            ))}
-          </div>
+              <blockquote className="leading-relaxed mb-5 text-[15px]">&ldquo;{r.text}&rdquo;</blockquote>
+              <figcaption className="mt-auto pt-4 border-t border-[var(--border)] flex items-start justify-between gap-3">
+                <span>
+                  <span className="block font-semibold">{r.name}</span>
+                  <span className="block text-xs text-[var(--text-muted)]">{r.location}</span>
+                </span>
+                <span className="text-xs font-semibold text-[var(--accent-strong)] bg-[var(--accent-soft)] px-3 py-1.5 rounded-full text-right">
+                  {r.course}
+                </span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </div>
 
-      {/* Video modal */}
-      {activeVideo && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setActiveVideo(null)}
-        >
-          <div className="relative w-full max-w-3xl">
-            <button
-              onClick={() => setActiveVideo(null)}
-              className="absolute -top-12 right-0 text-white hover:text-yellow-400 transition-colors"
-              aria-label="Close video"
-            >
-              <div className="w-10 h-10 flex items-center justify-center">
-                <i className="ri-close-line text-2xl"></i>
-              </div>
-            </button>
-            <video
-              src={activeVideo}
-              controls
-              autoPlay
-              className="w-full h-auto rounded-lg bg-black"
-            />
-          </div>
+      {active && (
+        <div className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 animate-fade-in" role="dialog" aria-modal="true" aria-label="Video review" onClick={() => setActive(null)}>
+          <video src={active} controls autoPlay playsInline className="max-h-[85vh] max-w-full rounded-xl bg-black" onClick={(e) => e.stopPropagation()} />
+          <button type="button" onClick={() => setActive(null)} className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center" aria-label="Close video">
+            <i className="ri-close-line text-2xl" aria-hidden="true"></i>
+          </button>
         </div>
       )}
     </section>
