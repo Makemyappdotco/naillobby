@@ -52,7 +52,7 @@ export default function FAQ() {
               role="tab"
               aria-selected={cat === i}
               onClick={() => setCat(i)}
-              className={`px-4 min-h-[44px] rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+              className={`shrink-0 px-4 min-h-[44px] rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
                 cat === i ? 'btn-gold hover:transform-none shadow-none' : 'bg-[var(--surface-2)] text-[var(--text-muted)] hover:text-[var(--text)]'
               }`}
             >

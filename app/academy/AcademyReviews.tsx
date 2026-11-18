@@ -122,12 +122,11 @@ export default function AcademyReviews() {
                 ))}
               </div>
               <blockquote className="leading-relaxed mb-5 text-[15px]">&ldquo;{r.text}&rdquo;</blockquote>
-              <figcaption className="mt-auto pt-4 border-t border-[var(--border)] flex items-start justify-between gap-3">
-                <span>
-                  <span className="block font-semibold">{r.name}</span>
-                  <span className="block text-xs text-[var(--text-muted)]">{r.location}</span>
-                </span>
-                <span className="text-xs font-semibold text-[var(--accent-strong)] bg-[var(--accent-soft)] px-3 py-1.5 rounded-full text-right">
+              <figcaption className="mt-auto pt-4 border-t border-[var(--border)]">
+                <span className="block font-semibold">{r.name}</span>
+                <span className="block text-xs text-[var(--text-muted)] mb-2.5">{r.location}</span>
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent-strong)] bg-[var(--accent-soft)] px-3 py-1.5 rounded-full whitespace-nowrap">
+                  <i className="ri-graduation-cap-line" aria-hidden="true"></i>
                   {r.course}
                 </span>
               </figcaption>

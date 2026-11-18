@@ -23,11 +23,11 @@ export default function Testimonials() {
             href={MAP_DIRECTIONS}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-1 px-4 py-2 rounded-full bg-white border border-[var(--border)] shadow-sm text-sm hover:border-[#e6cf98] transition-colors"
+            className="inline-flex items-center gap-1.5 sm:gap-2 mt-1 px-4 py-2 rounded-full whitespace-nowrap text-xs sm:text-sm bg-white border border-[var(--border)] shadow-sm hover:border-[#e6cf98] transition-colors"
           >
             <span className="font-semibold">5.0</span>
             <span className="text-[var(--accent)]" aria-hidden="true">★★★★★</span>
-            <span className="text-[var(--text-muted)]">150+ Google reviews</span>
+            <span className="text-[var(--text-muted)]">150+ <span className="hidden min-[360px]:inline">Google </span>reviews</span>
             <i className="ri-arrow-right-up-line text-[var(--accent-strong)]" aria-hidden="true"></i>
           </a>
         </div>
