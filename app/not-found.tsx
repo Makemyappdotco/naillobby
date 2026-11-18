@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <>
       <Navbar />
-      <main className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 pt-28 pb-16 bg-[var(--surface)]">
+      <main className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 pt-36 pb-16 bg-[var(--surface)]">
         <p className="text-sm font-semibold tracking-[0.18em] uppercase text-[var(--accent-strong)] mb-3">Error 404</p>
         <h1 className="text-4xl md:text-5xl font-bold mb-4">This page doesn&apos;t exist</h1>
         <p className="text-[var(--text-muted)] max-w-md mb-8">The link may be old or mistyped. Here are the main places to go.</p>

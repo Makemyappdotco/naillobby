@@ -20,7 +20,7 @@ export default function AcademyHero() {
       {/* Stronger wash on phones so the headline stays readable over the photo */}
       <div className="absolute inset-0 bg-white/85 sm:bg-transparent sm:bg-gradient-to-r sm:from-white sm:via-white/90 sm:to-white/20" aria-hidden="true" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-16 sm:pb-24 lg:min-h-[86vh] lg:flex lg:items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 sm:pt-44 pb-16 sm:pb-24 lg:min-h-[86vh] lg:flex lg:items-center">
         <div className="max-w-2xl">
           <p className="inline-flex items-center gap-2 bg-white border border-[#ecd9a8] rounded-full px-4 py-2 text-sm font-semibold text-[var(--accent-strong)] mb-6 shadow-sm">
             <i className="ri-graduation-cap-line" aria-hidden="true"></i>

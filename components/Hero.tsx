@@ -28,7 +28,7 @@ export default function Hero() {
         <i className="ri-sparkling-2-fill sparkle text-sm bottom-[30%] right-[6%]" style={{ animationDelay: '-1.8s' }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10 lg:pt-28 lg:pb-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-10 lg:pt-36 lg:pb-16">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center lg:min-h-[calc(100vh-140px)]">
           <div className="text-center lg:text-left hero-in">
             <p className="flex justify-center lg:justify-start items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)] mb-5">

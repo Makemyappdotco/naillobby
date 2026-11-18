@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { waLink } from '../lib/site';
+import AnnouncementBar from './AnnouncementBar';
 
 // Hash links start with "/" so they also work from the Academy page.
 const links = [
@@ -47,6 +48,7 @@ export default function Navbar() {
           isScrolled || open ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)]' : 'bg-transparent'
         }`}
       >
+        <AnnouncementBar />
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between gap-6" aria-label="Main">
           <Link href="/" className="flex items-center flex-shrink-0" onClick={close} aria-label="The Nail Lobby home">
             <img src="/media/logo.webp" alt="The Nail Lobby" width={480} height={126} className="h-11 md:h-12 w-auto" />
@@ -85,7 +87,7 @@ export default function Navbar() {
 
       {open && (
         <div id="mobile-menu" className="lg:hidden fixed inset-0 z-[45] bg-white overflow-y-auto animate-fade-in" role="dialog" aria-modal="true" aria-label="Menu">
-          <div className="min-h-full flex flex-col pt-[88px] pb-8 px-6 animate-slide-down">
+          <div className="min-h-full flex flex-col pt-[122px] pb-8 px-6 animate-slide-down">
             <ul className="flex-1">
               {links.map((l) => (
                 <li key={l.href} className="border-b border-[var(--border)]">

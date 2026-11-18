@@ -16,7 +16,7 @@
   --accent-strong: #b5832a;  /* logo gold for text (prices, labels, links) */
   --accent-soft: #fbf3df;    /* tinted gold for chips and icon tiles */
   --lavender: #75528c;       /* secondary accent for small details */
-  --nav-h: 72px;
+  --nav-h: 106px;            /* announcement bar 34px + navbar 72px */
 }
 
 html {
@@ -167,6 +167,9 @@ html.js .fade-up.visible {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+/* Announcement bar runs a bit faster than the services strip */
+.announce-track { animation-duration: 32s; }
+
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -348,6 +351,8 @@ html.js .stagger.visible > * { opacity: 1; translate: 0 0; }
   html.js .fade-up { opacity: 1; translate: none; transition: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; row-gap: 8px; }
   .marquee-track [aria-hidden="true"] { display: none; }
+  .announce-track { flex-wrap: nowrap; width: 100%; }
+  .announce-track > a:not(:first-child) { display: none; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

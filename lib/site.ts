@@ -61,8 +61,8 @@ export const services: Record<'Core' | 'Special' | 'Add-ons', Service[]> = {
   Special: [
     { name: 'Bridal Nails', benefit: 'Complete wedding nail look', duration: '100 min', price: 999, from: true, icon: 'ri-heart-3-line', whatsappMessage: "Hi! I'm getting married and want bridal nails. Can we discuss my wedding theme?" },
     { name: 'Toe Nail Extension', benefit: 'Length and strength for toe nails', duration: '60 min', price: 799, from: true, icon: 'ri-footprint-line', whatsappMessage: 'Hi! I need toe nail extensions. When can we schedule?' },
-    { name: 'Toe Overlay', benefit: 'Strength and shine for toe nails', duration: '45 min', price: 599, from: true, icon: 'ri-footprint-line', whatsappMessage: 'Hi! I want a toe overlay. Which designs do you suggest?' },
-    { name: 'Toe Gel Nail Paint', benefit: 'Long-lasting gel polish for toes', duration: '30 min', price: 499, from: true, icon: 'ri-drop-line', whatsappMessage: 'Hi! I want gel polish on my toes. Available this week?' },
+    { name: 'Toe Overlay', benefit: 'Strength and shine for toe nails', duration: '45 min', price: 799, from: true, icon: 'ri-footprint-line', whatsappMessage: 'Hi! I want a toe overlay. Which designs do you suggest?' },
+    { name: 'Toe Gel Nail Paint', benefit: 'Long-lasting gel polish for toes', duration: '30 min', price: 599, from: true, icon: 'ri-drop-line', whatsappMessage: 'Hi! I want gel polish on my toes. Available this week?' },
     { name: 'Removal (Hands)', benefit: 'Safe removal of existing extensions', duration: '30 min', price: 499, icon: 'ri-eraser-line', whatsappMessage: 'Hi! I need to remove my current extensions safely. When can I come in?' },
     { name: 'Removal (Feet)', benefit: 'Safe toe extension removal', duration: '20 min', price: 299, priceNote: '(₹100 with a new set)', icon: 'ri-eraser-line', whatsappMessage: 'Hi! I need toe extension removal, and I may get a new set too.' },
   ],
