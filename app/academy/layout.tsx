@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Nail Courses in Ghaziabad | The Nail Lobby Academy',
+  title: { absolute: 'Nail Courses in Ghaziabad | The Nail Lobby Academy' },
   description:
     'One-on-one nail art courses in Raj Nagar Extension, Ghaziabad. Basic Nail Mastery (₹18,000) and Advanced Nail Mastery (₹21,000). 2 hours a day, hands-on practice on live models, certificate on completion.',
   alternates: { canonical: '/academy' },

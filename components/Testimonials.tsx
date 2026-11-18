@@ -1,3 +1,5 @@
+import { MAP_DIRECTIONS } from '../lib/site';
+
 // TODO (client): replace these with real Google reviews and add the Google review link.
 const testimonials = [
   { name: 'Priya Sharma', text: 'Absolutely love the service at The Nail Lobby! The attention to detail is incredible and my nails have never looked better. The staff is so professional and the atmosphere is so relaxing.', service: 'Gel Extensions' },
@@ -16,6 +18,17 @@ export default function Testimonials() {
           <h2 className="section-title">
             What our <span className="text-gold">clients say</span>
           </h2>
+          <a
+            href={MAP_DIRECTIONS}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-1 px-4 py-2 rounded-full bg-white border border-[var(--border)] shadow-sm text-sm hover:border-[#e6cf98] transition-colors"
+          >
+            <span className="font-semibold">5.0</span>
+            <span className="text-[var(--accent)]" aria-hidden="true">★★★★★</span>
+            <span className="text-[var(--text-muted)]">150+ Google reviews</span>
+            <i className="ri-arrow-right-up-line text-[var(--accent-strong)]" aria-hidden="true"></i>
+          </a>
         </div>
 
         {/* Swipe row on phones, grid on larger screens */}
