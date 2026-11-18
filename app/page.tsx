@@ -12,6 +12,7 @@ import FAQ from '../components/FAQ';
 import CTABanner from '../components/CTABanner';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+import IntroCelebration from '../components/IntroCelebration';
 import { SITE_URL, faqs } from '../lib/site';
 
 const faqJsonLd = {
@@ -47,6 +48,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <IntroCelebration />
     </>
   );
 }

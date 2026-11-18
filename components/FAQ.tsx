@@ -36,9 +36,10 @@ export default function FAQ() {
   return (
     <section id="faq" className="section bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Frequently asked <span className="text-gold">questions</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Everything you need to know before your visit.</p>
         </div>
@@ -66,7 +67,7 @@ export default function FAQ() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <p className="text-[var(--text-muted)] text-sm mb-4">Still have a question? We&apos;re happy to help.</p>
           <a href={waLink('Hi, I have a question about your services.')} target="_blank" rel="noopener noreferrer" className="btn-gold px-6 py-3">
             <i className="ri-whatsapp-line text-lg" aria-hidden="true"></i>

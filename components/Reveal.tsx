@@ -22,7 +22,7 @@ export default function Reveal() {
     );
 
     const scan = () =>
-      document.querySelectorAll('.fade-up:not(.visible)').forEach((el) => io.observe(el));
+      document.querySelectorAll('.fade-up:not(.visible), .stagger:not(.visible)').forEach((el) => io.observe(el));
     scan();
 
     const mo = new MutationObserver(scan);

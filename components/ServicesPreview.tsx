@@ -50,9 +50,10 @@ export default function ServicesPreview() {
   return (
     <section id="services" className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Services &amp; <span className="text-gold">Prices</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">
             Every service with its time and starting price. Tap Book to message us on WhatsApp.
@@ -84,7 +85,7 @@ export default function ServicesPreview() {
           role="tabpanel"
           aria-labelledby={`tab-${active}`}
           key={active}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 animate-fade-in"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 stagger"
         >
           {services[active].map((s) => (
             <ServiceCard key={s.name} s={s} />

@@ -81,7 +81,7 @@ export default function AcademyIntro() {
               </div>
             </div>
 
-            <div className="absolute -bottom-5 -right-3 sm:-right-5 btn-gold hover:transform-none rounded-2xl px-5 py-4 flex-col items-start gap-0 shadow-xl">
+            <div className="absolute -bottom-5 -right-3 sm:-right-5 float-soft btn-gold hover:transform-none rounded-2xl px-5 py-4 flex-col items-start gap-0 shadow-xl">
               <span className="text-2xl sm:text-3xl font-bold leading-none">200+</span>
               <span className="text-xs sm:text-sm font-medium">Students trained</span>
             </div>
@@ -96,7 +96,7 @@ export default function AcademyIntro() {
               Based in Raj Nagar Extension, Ghaziabad, The Nail Lobby Academy is where beginners become confident, skilled
               nail professionals, with real salon experience, not just classroom theory.
             </p>
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-2 gap-6 stagger">
               {points.map((p) => (
                 <div key={p.title} className="flex gap-4">
                   <span className="icon-tile w-12 h-12"><i className={`${p.icon} text-xl`} aria-hidden="true"></i></span>

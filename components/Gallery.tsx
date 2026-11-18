@@ -40,20 +40,21 @@ export default function Gallery() {
   return (
     <section id="gallery" className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Our <span className="text-gold">Work</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Real sets done at The Nail Lobby. Tap a photo to see it bigger.</p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 fade-up">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 stagger">
           {galleryImages.map((img, i) => (
             <button
               key={img.src}
               type="button"
               onClick={() => setIndex(i)}
-              className="group relative block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-[var(--border)]"
+              className="group relative block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-md border border-[var(--border)] transition-[box-shadow,border-color,transform] duration-300 hover:-translate-y-1 hover:border-[#e6cf98] hover:shadow-[0_18px_36px_-14px_rgba(181,131,42,0.45)]"
               aria-label={`Open photo: ${img.alt}`}
             >
               <img

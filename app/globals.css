@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 /* ------------------------------------------------------------------
-   Design tokens. One gold, used for accents only.
-   Text gold is dark enough to pass contrast on the light backgrounds.
+   Design tokens. Gold is taken from the logo (#c89028 to #e8b848).
 ------------------------------------------------------------------- */
 :root {
   --bg: #ffffff;
@@ -14,7 +13,7 @@
   --text: #17121a;
   --text-muted: #5b5560;
   --accent: #c9962e;         /* gold fill (buttons, icons) */
-  --accent-strong: #8a5f0a;  /* gold text on light backgrounds, 4.9:1 on white */
+  --accent-strong: #b5832a;  /* logo gold for text (prices, labels, links) */
   --accent-soft: #fbf3df;    /* tinted gold for chips and icon tiles */
   --lavender: #75528c;       /* secondary accent for small details */
   --nav-h: 72px;
@@ -50,16 +49,27 @@ section[id] {
 }
 
 @layer components {
-  /* Section heading accent word: solid deep gold so it stays readable */
+  /* Brand gold with a moving shimmer (same family as the logo) */
   .text-gold {
-    color: var(--accent-strong);
+    background: linear-gradient(100deg, #b5832a 0%, #d9a43c 22%, #f6d988 38%, #d9a43c 52%, #b5832a 68%, #d9a43c 84%, #b5832a 100%);
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #c89028;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    animation: goldShimmer 4.5s linear infinite;
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 2.75rem 0;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 3.5rem 0; }
   }
   @media (min-width: 1024px) {
-    .section { padding: 5.5rem 0; }
+    .section { padding: 4.25rem 0; }
   }
   .section-tint {
     background: linear-gradient(180deg, var(--surface) 0%, #ffffff 100%);
@@ -76,6 +86,9 @@ section[id] {
   /* Primary button: gold with dark text (passes contrast, reads as gold not plastic) */
   .btn-gold {
     @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background: linear-gradient(135deg, #e4b84a 0%, #c9962e 55%, #b98620 100%);
     color: #1f1404;
     box-shadow: 0 6px 18px -6px rgba(185, 134, 32, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
@@ -170,7 +183,167 @@ html.js .fade-up.visible {
 .animate-fade-in { animation: fadeIn 0.2s ease-out both; }
 .animate-slide-down { animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+/* ------------------------------------------------------------------
+   Animations
+------------------------------------------------------------------- */
+@keyframes goldShimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -150% 0; }
+}
+
+/* Light sweep across gold buttons: runs every few seconds and on hover */
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 48%, transparent 66%);
+  transform: translateX(-120%);
+  animation: btnShine 5s ease-in-out infinite;
+  pointer-events: none;
+}
+.btn-gold:hover::after {
+  animation: btnShineFast 0.8s ease-out;
+}
+@keyframes btnShine {
+  0%, 70% { transform: translateX(-120%); }
+  85%, 100% { transform: translateX(120%); }
+}
+@keyframes btnShineFast {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(120%); }
+}
+
+/* Hero entrance: each child rises in one after another */
+.hero-in > * {
+  opacity: 0;
+  animation: riseIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.hero-in > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-in > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-in > *:nth-child(3) { animation-delay: 0.28s; }
+.hero-in > *:nth-child(4) { animation-delay: 0.4s; }
+.hero-in > *:nth-child(5) { animation-delay: 0.52s; }
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.media-in {
+  opacity: 0;
+  animation: mediaIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+@keyframes mediaIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.96) rotate(1.5deg); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Soft glowing orbs behind the hero */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(50px);
+  pointer-events: none;
+  animation: orbFloat 14s ease-in-out infinite;
+}
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(24px, -18px) scale(1.08); }
+  66% { transform: translate(-18px, 14px) scale(0.95); }
+}
+
+/* Twinkling sparkles, like the stars in the logo */
+.sparkle {
+  position: absolute;
+  color: #d9a43c;
+  pointer-events: none;
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.6) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(20deg); }
+}
+
+/* Gold glow pulsing around the hero video frame */
+.glow-frame {
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 30px 60px -20px rgba(70, 40, 10, 0.35), 0 0 0 0 rgba(217, 164, 60, 0.0); }
+  50% { box-shadow: 0 30px 60px -20px rgba(70, 40, 10, 0.35), 0 0 36px 4px rgba(217, 164, 60, 0.35); }
+}
+
+/* Staggered reveal for grids: children fade up one after another */
+html.js .stagger > * {
+  opacity: 0;
+  translate: 0 22px;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), translate 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+html.js .stagger.visible > * { opacity: 1; translate: 0 0; }
+.stagger.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.stagger.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.stagger.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.stagger.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.stagger.visible > *:nth-child(6) { transition-delay: 0.4s; }
+.stagger.visible > *:nth-child(n+7) { transition-delay: 0.48s; }
+
+/* Icon tiles lift and turn gold when their card is hovered */
+.card .icon-tile { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease, color 0.3s ease; }
+.card:hover .icon-tile { transform: translateY(-3px) rotate(-6deg); background: #c89028; color: #fff; }
+
+/* Section heading underline that draws in when the section appears */
+.title-line {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, #d9a43c, transparent);
+  transform: scaleX(0);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+.visible .title-line, html:not(.js) .title-line { transform: scaleX(1); }
+
+/* Process connector line draws across */
+.draw-line { transform: scaleX(0); transform-origin: left; transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s; }
+.visible .draw-line { transform: scaleX(1); }
+
+/* WhatsApp button pulse ring */
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #25d366;
+  z-index: -1;
+  animation: waPulse 2.4s ease-out infinite;
+}
+@keyframes waPulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Intro banner */
+.intro-fade-in { animation: fadeIn 0.35s ease-out both; }
+.intro-fade-out { animation: fadeOut 0.5s ease-in both; }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+.intro-pop { animation: introPop 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes introPop {
+  0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+  55% { opacity: 1; transform: translateY(-5px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Gentle float for small badges */
+.float-soft { animation: floatSoft 5s ease-in-out infinite; }
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html.js .stagger > * { opacity: 1; translate: none; }
+  .hero-in > *, .media-in { opacity: 1; }
+  .title-line, .draw-line { transform: none; }
   html { scroll-behavior: auto; }
   html.js .fade-up { opacity: 1; translate: none; transition: none; }
   .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; row-gap: 8px; }

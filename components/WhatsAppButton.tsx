@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with The Nail Lobby on WhatsApp"
-      className="fixed z-40 right-4 bottom-4 sm:right-6 sm:bottom-6 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_24px_-6px_rgba(37,211,102,0.6)] hover:scale-105 transition-transform"
+      className="wa-pulse isolate fixed z-40 right-4 bottom-4 sm:right-6 sm:bottom-6 w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_8px_24px_-6px_rgba(37,211,102,0.6)] hover:scale-105 transition-transform"
     >
       <i className="ri-whatsapp-line text-[28px] leading-none" aria-hidden="true"></i>
     </a>

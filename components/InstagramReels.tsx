@@ -52,9 +52,10 @@ export default function InstagramReels() {
   return (
     <section className="section bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Follow us on <span className="text-gold">Instagram</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub mb-4">Our latest sets and behind-the-scenes from the studio.</p>
           <a

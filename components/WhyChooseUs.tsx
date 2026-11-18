@@ -9,15 +9,16 @@ export default function WhyChooseUs() {
   return (
     <section className="section bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Why choose <span className="text-gold">The Nail Lobby</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 fade-up">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 stagger">
           {features.map((f) => (
-            <div key={f.title} className="card p-4 sm:p-7 text-center">
+            <div key={f.title} className="card card-hover p-4 sm:p-7 text-center">
               <span className="icon-tile w-12 h-12 sm:w-14 sm:h-14 mx-auto mb-3 sm:mb-5">
                 <i className={`${f.icon} text-xl sm:text-2xl`} aria-hidden="true"></i>
               </span>

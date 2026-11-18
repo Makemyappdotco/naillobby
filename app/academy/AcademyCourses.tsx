@@ -68,20 +68,21 @@ export default function AcademyCourses() {
   return (
     <section id="courses" className="section bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Our <span className="text-gold">nail courses</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">
             Two focused courses, both one-on-one and hands-on. Seats are limited so every student gets personal attention.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 stagger">
           {courses.map((c) => (
             <article
               key={c.name}
-              className={`card overflow-hidden flex flex-col fade-up ${c.featured ? 'border-2 border-[#e2c47c]' : ''}`}
+              className={`card card-hover overflow-hidden flex flex-col ${c.featured ? 'border-2 border-[#e2c47c]' : ''}`}
             >
               <div className="relative h-48 sm:h-52">
                 <img src={c.image.src} alt="" width={c.image.w} height={c.image.h} loading="lazy" className="w-full h-full object-cover" />
@@ -121,9 +122,9 @@ export default function AcademyCourses() {
           ))}
         </div>
 
-        <div className="mt-10 card p-6 sm:p-8 fade-up">
+        <div className="mt-8 card p-6 sm:p-8 fade-up">
           <h3 className="text-center text-xl md:text-2xl font-bold mb-8">Both courses include</h3>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
             {included.map((item) => (
               <li key={item.text} className="flex items-center gap-3">
                 <span className="icon-tile w-11 h-11"><i className={item.icon} aria-hidden="true"></i></span>

@@ -10,19 +10,20 @@ export default function Process() {
   return (
     <section className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             How it <span className="text-gold">works</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Three simple steps from idea to finished nails.</p>
         </div>
 
-        <ol className="grid md:grid-cols-3 gap-7 lg:gap-12 fade-up">
+        <ol className="grid md:grid-cols-3 gap-7 lg:gap-12 stagger">
           {steps.map((step, i) => (
             <li key={step.title} className="relative grid grid-cols-[56px_1fr] gap-x-4 text-left md:block md:text-center">
               {i < steps.length - 1 && (
                 <span
-                  className="hidden md:block absolute top-9 left-[calc(50%+48px)] right-[calc(-50%+48px)] h-px bg-gradient-to-r from-[var(--accent)] to-[#cdb4dc]"
+                  className="hidden md:block absolute top-9 left-[calc(50%+48px)] right-[calc(-50%+48px)] h-px bg-gradient-to-r from-[var(--accent)] to-[#cdb4dc] draw-line"
                   aria-hidden="true"
                 />
               )}
@@ -36,7 +37,7 @@ export default function Process() {
           ))}
         </ol>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 md:mt-10">
           <a href={waLink("Hi The Nail Lobby! I'd like to book an appointment.")} target="_blank" rel="noopener noreferrer" className="btn-gold px-8 py-4 text-lg">
             <i className="ri-whatsapp-line text-xl" aria-hidden="true"></i>
             Book your appointment

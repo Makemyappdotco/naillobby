@@ -14,9 +14,10 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             What our <span className="text-gold">clients say</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <a
             href={MAP_DIRECTIONS}
@@ -32,9 +33,9 @@ export default function Testimonials() {
         </div>
 
         {/* Swipe row on phones, grid on larger screens */}
-        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2">
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory scrollbar-hide pb-2 stagger">
           {testimonials.map((t) => (
-            <figure key={t.name} className="card p-6 sm:p-7 flex flex-col snap-center shrink-0 w-[85%] sm:w-auto">
+            <figure key={t.name} className="card card-hover p-6 sm:p-7 flex flex-col snap-center shrink-0 w-[85%] sm:w-auto">
               <div className="flex gap-0.5 mb-3 text-[var(--accent)]" aria-label="5 out of 5 stars">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i key={i} className="ri-star-fill" aria-hidden="true"></i>

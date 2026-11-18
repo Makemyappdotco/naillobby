@@ -31,9 +31,10 @@ export default function AcademyFAQ() {
   return (
     <section className="section bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Frequently asked <span className="text-gold">questions</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Everything you need to know before joining the academy.</p>
         </div>

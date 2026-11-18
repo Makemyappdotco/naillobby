@@ -73,9 +73,10 @@ export default function AcademyReviews() {
   return (
     <section id="reviews" className="section section-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Student <span className="text-gold">reviews</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Hear from students who trained with us.</p>
         </div>
@@ -84,7 +85,7 @@ export default function AcademyReviews() {
           <i className="ri-video-line text-[var(--accent-strong)]" aria-hidden="true"></i>
           Video reviews
         </h3>
-        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2 mb-12">
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-2 mb-8">
           {videoReviews.map((r) => (
             <button
               key={r.video}
@@ -112,9 +113,9 @@ export default function AcademyReviews() {
           <i className="ri-chat-quote-line text-[var(--accent-strong)]" aria-hidden="true"></i>
           Written reviews
         </h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 stagger">
           {writtenReviews.map((r) => (
-            <figure key={r.name} className="card p-6 flex flex-col">
+            <figure key={r.name} className="card card-hover p-6 flex flex-col">
               <div className="flex gap-0.5 mb-3 text-[var(--accent)]" aria-label={`${r.rating} out of 5 stars`}>
                 {Array.from({ length: 5 }).map((_, i) => (
                   <i key={i} className={i < r.rating ? 'ri-star-fill' : 'ri-star-line'} aria-hidden="true"></i>

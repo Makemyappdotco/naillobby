@@ -65,9 +65,10 @@ export default function Contact() {
   return (
     <section id="contact" className="section bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 fade-up">
+        <div className="text-center mb-7 md:mb-10 fade-up">
           <h2 className="section-title">
             Visit or <span className="text-gold">book</span>
+            <span className="title-line" aria-hidden="true" />
           </h2>
           <p className="section-sub">Fill in the form and it opens WhatsApp with your booking ready to send.</p>
         </div>
