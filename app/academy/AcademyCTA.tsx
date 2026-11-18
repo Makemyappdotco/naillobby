@@ -7,7 +7,7 @@ export default function AcademyCTA() {
         <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight">
           Ready to start your <span className="text-gold">nail career</span>?
         </h2>
-        <p className="text-lg md:text-xl text-[var(--text-muted)] mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[var(--text-muted)] mb-8 max-w-2xl mx-auto text-balance">
           Seats are limited to keep every class one-on-one. Message us today to book your spot.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">

@@ -7,7 +7,7 @@ export default function CTABanner() {
         <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight">
           Ready for <span className="text-gold">gorgeous nails</span>?
         </h2>
-        <p className="text-lg md:text-xl text-[var(--text-muted)] mb-8 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-[var(--text-muted)] mb-8 max-w-2xl mx-auto text-balance">
           Book your appointment today. Message us on WhatsApp or give us a call.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">

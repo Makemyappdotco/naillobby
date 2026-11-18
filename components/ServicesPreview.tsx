@@ -55,7 +55,7 @@ export default function ServicesPreview() {
             Services &amp; <span className="text-gold">Prices</span>
             <span className="title-line" aria-hidden="true" />
           </h2>
-          <p className="section-sub">
+          <p className="section-sub text-balance">
             Every service with its time and starting price. Tap Book to message us on WhatsApp.
           </p>
         </div>

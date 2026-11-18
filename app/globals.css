@@ -343,19 +343,6 @@ html.js .stagger.visible > * { opacity: 1; translate: 0 0; }
   50% { transform: translateY(-8px); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html.js .stagger > * { opacity: 1; translate: none; }
-  .hero-in > *, .media-in { opacity: 1; }
-  .title-line, .draw-line { transform: none; }
-  html { scroll-behavior: auto; }
-  html.js .fade-up { opacity: 1; translate: none; transition: none; }
-  .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; row-gap: 8px; }
-  .marquee-track [aria-hidden="true"] { display: none; }
-  .announce-track { flex-wrap: nowrap; width: 100%; }
-  .announce-track > a:not(:first-child) { display: none; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+/* Animations run for everyone, including devices with system animations turned off
+   (Windows often ships with this off). They are slow, soft and never flash. */
+

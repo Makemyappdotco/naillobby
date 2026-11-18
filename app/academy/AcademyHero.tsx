@@ -28,7 +28,7 @@ export default function AcademyHero() {
           </p>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.1] mb-6">
-            Learn the art of <span className="text-gold">nail mastery</span>
+            Learn the art of <span className="text-gold sm:block">nail mastery</span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-[#3d3640] mb-8 max-w-xl leading-relaxed">

@@ -24,7 +24,6 @@ export default function AcademyIntro() {
 
   useEffect(() => {
     if (paused) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const t = setInterval(() => setCurrent((c) => (c + 1) % total), 5000);
     return () => clearInterval(t);
   }, [paused, total]);

@@ -28,7 +28,6 @@ export default function IntroCelebration() {
       /* storage blocked: still show it */
     }
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     let pieces: Piece[] = [];
@@ -103,11 +102,9 @@ export default function IntroCelebration() {
     const start = () => {
       size();
       setPhase('in');
-      if (!reduce) {
-        spawn(150, true);
-        timers.push(window.setTimeout(() => spawn(80, false), 1300));
-        timers.push(window.setTimeout(() => spawn(70, false), 2500));
-      }
+      spawn(150, true);
+      timers.push(window.setTimeout(() => spawn(80, false), 1300));
+      timers.push(window.setTimeout(() => spawn(70, false), 2500));
       timers.push(window.setTimeout(() => setPhase('out'), 5200));
       timers.push(window.setTimeout(() => setPhase('hidden'), 5800));
     };
